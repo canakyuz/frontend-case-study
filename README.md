@@ -1,5 +1,3 @@
-# frontend-case-study
-
 # Frontend Developer Çalışması
 
 ## Genel Kriterler: 
