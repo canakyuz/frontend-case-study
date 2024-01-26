@@ -24,7 +24,7 @@ const Sorting = () => {
   <div>
    <div className='text-gray-500 text-base'>Sort by</div>
    <div className='py-4 px-4 rounded-sm shadow-custom bg-white'>
-    <label className='flex flex-col gap-2 text-base'>
+    <label className='flex flex-col gap-2 text-sm'>
      <div className={`flex flex-row items-center gap-2 cursor-pointer`}>
       <input
        type="radio"

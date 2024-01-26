@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProducts, setBrandFilter } from '../../redux/productsSlice';
+import { setBrandFilter } from '../../redux/productsSlice';
 import { BiSearch } from 'react-icons/bi';
 
 const Brand = () => {
  const dispatch = useDispatch();
- const products = useSelector((state) => state.products.products);
  const selectedBrand = useSelector((state) => state.products.selectedBrand);
- const [brandOptions, setBrandOptions] = useState([]);
+ const brandOptions = useSelector((state) => {
+  const data = state.products.products;
+  return Array.from(new Set(data.map(product => product.brand)));
+ });
  const [searchTerm, setSearchTerm] = useState('');
 
- useEffect(() => {
-  const fetchData = async () => {
-   try {
-    const response = await fetch('https://5fc9346b2af77700165ae514.mockapi.io/products');
-    const data = await response.json();
-    dispatch(setProducts(data));
-
-    // Marka seçeneklerini oluştur
-    const uniqueBrands = Array.from(new Set(data.map(product => product.brand)));
-    setBrandOptions(uniqueBrands);
-   } catch (error) {
-    console.error('Error fetching data:', error);
-   }
-  };
-
-  fetchData();
- }, [dispatch]);
-
  const handleBrandChange = (brand) => {
-  // Seçili marka değişirse, seçilen markayı günceller
   dispatch(setBrandFilter(brand === selectedBrand ? '' : brand));
  };
 
@@ -42,7 +25,7 @@ const Brand = () => {
  return (
   <div className='scroll scroll-my-16'>
    <label className='text-gray-500 text-base'>Brands</label>
-   <div className='py-4 px-4 rounded-sm shadow-custom text-base custom-scrollbar bg-white'>
+   <div className='py-4 px-4 rounded-sm shadow-custom custom-scrollbar bg-white text-sm'>
     {/* Search */}
     <div className='flex flex-row items-center border border-gray-300 p-2 rounded-md w-full mb-4'>
      <BiSearch className="text-xl mr-3 accent-white opacity-30" />

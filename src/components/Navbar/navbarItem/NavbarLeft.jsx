@@ -1,17 +1,21 @@
 import React from "react";
-import { BiSearch } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+import Search from "./Search";
 
 const NavbarLeft = () => {
+  const navigate = useNavigate();
+
+
+  const handleLogoClick = () => {
+    navigate('/'); // '/' rotası home.jsx sayfasını temsil ediyor, isteğe bağlı olarak rotayı değiştirebilirsiniz
+  };
+
   return (
-    <div className="flex flex-row items-center gap-3">
-      <div className="text-3xl font-semibold text-white">Eteration</div>
-      {/* Search Bar */}
-      <div className="flex items-center border ml-32 py-2 px-4 rounded-md border-gray-300 bg-white">
-        <BiSearch className="text-xl mr-3 accent-white opacity-30" />
-        <input className="outline-none" type="text" placeholder="Search" />
-      </div>
+    <div className="flex flex-row items-center gap-5 w-6/12 justify-between">
+      <div className="md:text-3xl text-xl font-semibold text-white cursor-pointer" onClick={handleLogoClick}>Eteration</div>
+      {/* Search */}
+      <Search />
     </div>
-    /* Add Search Bar */
   );
 };
 

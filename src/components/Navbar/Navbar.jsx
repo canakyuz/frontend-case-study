@@ -4,8 +4,8 @@ import NavbarRight from "./navbarItem/NavbarRight"; // Fix the casing of the imp
 
 const Navbar = () => {
   return (
-    <div className="bg-blue-600 px-6 py-3">
-      <div className="flex items-center justify-between w-10/12 mx-auto font-ui">
+    <div className="bg-blue-600 md:px-6 md:py-3 px-5 py-2 gap-5">
+      <div className="flex items-center justify-between md:w-11/12 mx-auto font-ui">
         <NavbarLeft />
         <NavbarRight />
       </div>

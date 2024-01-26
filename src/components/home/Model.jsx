@@ -1,36 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProducts, setModelFilter } from '../../redux/productsSlice';
+import { setModelFilter } from '../../redux/productsSlice';
 import { BiSearch } from 'react-icons/bi';
 
 const Model = () => {
  const dispatch = useDispatch();
- const products = useSelector((state) => state.products.products);
  const selectedModel = useSelector((state) => state.products.selectedModel);
- const selectedBrand = useSelector((state) => state.products.selectedBrand); // Seçili marka bilgisini alın
- const [modelOptions, setModelOptions] = useState([]);
+ const selectedBrand = useSelector((state) => state.products.selectedBrand);
+ const modelOptions = useSelector((state) => {
+  const data = state.products.products;
+  return Array.from(new Set(data.filter(product => !selectedBrand || product.brand === selectedBrand).map(product => product.model)));
+ });
  const [searchTerm, setSearchTerm] = useState('');
 
- useEffect(() => {
-  const fetchData = async () => {
-   try {
-    const response = await fetch('https://5fc9346b2af77700165ae514.mockapi.io/products');
-    const data = await response.json();
-    dispatch(setProducts(data));
-
-    // Model seçeneklerini oluştur
-    const uniqueModels = Array.from(new Set(data.filter(product => !selectedBrand || product.brand === selectedBrand).map(product => product.model))); // Seçili markaya ait modelleri alın
-    setModelOptions(uniqueModels);
-   } catch (error) {
-    console.error('Error fetching data:', error);
-   }
-  };
-
-  fetchData();
- }, [dispatch, selectedBrand]); // Seçili marka değiştiğinde yeniden yükleme yap
-
  const handleModelChange = (model) => {
-  // Seçili model değişirse, seçilen modeli günceller
   dispatch(setModelFilter(model === selectedModel ? '' : model));
  };
 
@@ -43,7 +26,7 @@ const Model = () => {
  return (
   <div className='scroll scroll-my-16'>
    <label className='text-gray-500 text-base'>Model</label>
-   <div className='py-4 px-4 rounded-sm shadow-custom text-base custom-scrollbar bg-white'>
+   <div className='py-4 px-4 rounded-sm shadow-custom custom-scrollbar bg-white text-sm'>
     {/* Search */}
     <div className='flex flex-row items-center border border-gray-300 p-2 rounded-md w-full mb-4'>
      <BiSearch className="text-xl mr-3 accent-white opacity-30" />
