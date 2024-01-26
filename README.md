@@ -23,18 +23,11 @@
 - [x] Ürünlerden herhangi birinin üzerine tıklandığında “Ürün Detay” ekranına gidebilmeli ve sepete ekleme işlemi bu alandan da yapılabilmelidir.
 - [x] Redux, Redux-Saga, ContextApi vb. kullanılması avantajlı olacaktır.
 
-<b>API Link:</b> https://5fc9346b2af77700165ae514.mockapi.io/products
+## Ekran Görüntüleri
 
-<b>Ekran Görselleri Link:</b> https://www.figma.com/file/V4VefkJBn8SESKJwJO3486/Eteration-React-Case-Study
+### Ürün Listesi
+![Ürün Listesi](./public/Screen%20Recording%202024-01-26%20at%2010.02.23.mov)
 
-> Not: Gönderilen tasarım, açıklama, görsel argüman sağlama açısından eklenmiştir. Görselde yer alan gölge, font, icon gibi özellikler aranmayacaktır.
 
-## Ekran Görselleri:
-
-### Anasayfa:
-
-<img src="./docs/home.png" />
-
-### Detay Ekranı:
-
-<img src="./docs/detail.png" />
+## Test
+![Test](./public/test.jpg)
