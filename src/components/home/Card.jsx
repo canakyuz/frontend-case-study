@@ -6,7 +6,7 @@ const Card = () => {
  const dispatch = useDispatch();
  const cardItems = useSelector((state) => state.card.cardItems);
 
- // updateProductName ve newName değişkenlerini kaldırın
+
  const handleIncrement = (id, quantity) => {
   dispatch(updateCardItemQuantity({ id, quantity: quantity + 1 }));
  };
@@ -20,10 +20,9 @@ const Card = () => {
  };
 
 
-
- // State güncellendiğinde bileşenin yeniden render edilmesini sağlar
+ ""
  useEffect(() => {
-  // Herhangi bir state değişikliği olduğunda burası çalışır
+  ""
  }, [cardItems]);
 
  return (

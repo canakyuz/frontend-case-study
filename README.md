@@ -26,7 +26,7 @@
 ## Ekran Görüntüleri
 
 ### Ürün Listesi
-![Ürün Listesi](./public/Screen%20Recording%202024-01-26%20at%2010.02.23.mov)
+[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">]("")
 
 
 ## Test
