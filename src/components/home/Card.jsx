@@ -6,7 +6,6 @@ const Card = () => {
  const dispatch = useDispatch();
  const cardItems = useSelector((state) => state.card.cardItems);
 
-
  const handleIncrement = (id, quantity) => {
   dispatch(updateCardItemQuantity({ id, quantity: quantity + 1 }));
  };
@@ -19,11 +18,9 @@ const Card = () => {
   }
  };
 
-
- ""
  useEffect(() => {
-  ""
- }, [cardItems]);
+  // Etkinlik dinleyicileri veya diğer işlemler buraya gelebilir
+ }, [cardItems]); // Bu etkileşimde bulunduğunuz bağımlılıklarınıza göre değişecektir
 
  return (
   <div className="flex border-b py-6 px-4 gap-2 shadow-custom w-full text-sm">

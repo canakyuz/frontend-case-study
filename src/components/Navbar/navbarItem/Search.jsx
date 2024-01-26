@@ -19,7 +19,7 @@ const Search = () => {
   <div className="flex items-center border py-2 px-4 rounded-md border-gray-300 bg-white lg:w-7/12">
    <BiSearch className="text-xl mr-2 accent-white opacity-30" />
    <input
-    className="outline-none w-16 bg-transparent"
+    className="outline-none bg-transparent w-full"
     type="text"
     placeholder="Search"
     value={searchInput}
